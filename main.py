@@ -26,7 +26,6 @@ if not config.show_change or not os.path.exists('db.json'):
   text = text.replace("%%domaincount%%", str(instance['stats']['domain_count']))
   text = text.replace("%%activeusers%%", str(instancev2['usage']['users']['active_month']))
   text = text.replace("%%timestamp%%", time)
-  text = text.replace("%%mau%%", str(mau))
 else:
   
   f = open('db.json', 'r')
@@ -47,7 +46,6 @@ else:
   text = text.replace("%%domaincount%%", str(instance['stats']['domain_count']) + '(%+-d)'%domain_change)
   text = text.replace("%%activeusers%%", str(instancev2['usage']['users']['active_month']) + '(%+-d)'%active_change)
   text = text.replace("%%timestamp%%", time)
-  text = text.replace("%%mau%%", str(mau) + '(%+-d)'%mau_change)
 
 db={'version':instance['version'],'user_count':instance['stats']['user_count'],'status_count':instance['stats']['status_count'],'domain_count': instance['stats']['domain_count'], 'active_users': instancev2['usage']['users']['active_month']}
 db = json.dumps(db)
